@@ -1,9 +1,9 @@
 $(function(){
    switch(menu){
-       case 'About us':
+       case 'O nas':
            $('#about').addClass('active');
            break;
-       case 'Contact':
+       case 'Kontakt':
            $('#contact').addClass('active');
            break;
        default:
