@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="shopFront:war">
+    <output-path>$PROJECT_DIR$/shopFront/target</output-path>
+    <root id="archive" name="shopFront.war">
+      <element id="artifact" artifact-name="shopFront:war exploded" />
+    </root>
+  </artifact>
+</component>
