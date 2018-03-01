@@ -33,7 +33,7 @@ public class CategoryDAOImpl implements CategoryDAO {
         //third
 
         category = new Category();
-        category.setId(1);
+        category.setId(3);
         category.setName("gry xbox");
         category.setDescription("gry dla konsoli xbox");
         category.setImageURL("3.PNG");
@@ -44,5 +44,17 @@ public class CategoryDAOImpl implements CategoryDAO {
     @Override
     public List<Category> list() {
         return categories;
+    }
+
+
+    //enhancede for loop
+    @Override
+    public Category get(int id) {
+        for (Category category : categories) {
+            if (category.getId() == id) {
+                return category;
+            }
+        }
+        return null;
     }
 }
