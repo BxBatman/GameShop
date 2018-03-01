@@ -14,7 +14,7 @@ public class CategoryDAOImpl implements CategoryDAO {
     static {
         Category category = new Category();
         category.setId(1);
-        category.setName("gry ps3");
+        category.setName("gryps3");
         category.setDescription("gry dla konsoli ps3");
         category.setImageURL("1.PNG");
         categories.add(category);
@@ -24,7 +24,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 
         category = new Category();
         category.setId(2);
-        category.setName("gry ps4");
+        category.setName("gryps4");
         category.setDescription("gry dla konsoli ps4");
         category.setImageURL("2.PNG");
         categories.add(category);
@@ -34,7 +34,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 
         category = new Category();
         category.setId(3);
-        category.setName("gry xbox");
+        category.setName("gryxbox");
         category.setDescription("gry dla konsoli xbox");
         category.setImageURL("3.PNG");
         categories.add(category);
