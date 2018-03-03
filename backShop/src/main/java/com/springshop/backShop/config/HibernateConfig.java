@@ -16,8 +16,8 @@ import java.util.Properties;
 @ComponentScan(basePackages = {"com.springshop.backShop.dto"})
 @EnableTransactionManagement
 public class HibernateConfig {
-    private final static String DATABASE_URL = " jdbc:h2:tcp://localhost/~/gameshop";
-    private final static String DATABASE_DRIVER = "org.h2.driver";
+    private final static String DATABASE_URL = "jdbc:h2:tcp://localhost/~/gameshop";
+    private final static String DATABASE_DRIVER = "org.h2.Driver";
     private final static String DATABASE_DIALECT = "org.hibernate.dialect.H2Dialect";
     private final static String DATABASE_USERNAME = "sa";
     private final static String DATABASE_PASSWORD = "";
