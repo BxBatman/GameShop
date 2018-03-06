@@ -2,7 +2,7 @@
 <div class="container">
     <div class="row">
         <!-- would be to display sidebar-->
-        <div class="cold-md-3">
+        <div class="col-md-3">
 
             <%@include file="./shared/sidebar.jsp" %>
 

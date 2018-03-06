@@ -49,9 +49,11 @@ public class CategoryDAOImpl implements CategoryDAO {
             return false;
         }
     }
+
     //deleting single category
     @Override
     public boolean delete(Category category) {
+        //set unactive to not available to see
         category.setActive(false);
         try {
 
@@ -66,9 +68,9 @@ public class CategoryDAOImpl implements CategoryDAO {
 
     @Override
     public List<Category> list() {
-        String selectActiveCategory = "FROM Category WHERE active = :active:";
+        String selectActiveCategory = "FROM Category WHERE active = 'TRUE'";
         Query query = sessionFactory.getCurrentSession().createQuery(selectActiveCategory);
-        query.setParameter("active",true);
+        //query.setParameter("active",true);
 
 
         return query.getResultList();
@@ -81,8 +83,6 @@ public class CategoryDAOImpl implements CategoryDAO {
 
         return sessionFactory.getCurrentSession().get(Category.class, Integer.valueOf(id));
     }
-
-
 
 
 }
