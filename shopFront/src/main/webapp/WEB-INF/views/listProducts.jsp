@@ -15,6 +15,9 @@
 
             <div class="col-lg-12">
                 <c:if test="${userClickAllProducts == true}">
+                    <script>
+                        window.categoryId = '';
+                    </script>
 
                     <ol class="breadcrumb">
 
@@ -27,6 +30,10 @@
 
                 <c:if test="${userClickCategoryProducts == true}">
 
+                    <script>
+                        window.categoryId = '${category.id}';
+                    </script>
+
                     <ol class="breadcrumb">
 
                         <li class="breadcrumb-item"><a href="${contextRoot}/home">Strona g³ówna</a></li>
@@ -37,6 +44,18 @@
                 </c:if>
 
 
+            </div>
+
+
+            <div class="col-lg-12">
+                <table id="productListTable" class="table table-striped table-borderd">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nazwa</th>
+                    </tr>
+                    </thead>
+                </table>
             </div>
 
 

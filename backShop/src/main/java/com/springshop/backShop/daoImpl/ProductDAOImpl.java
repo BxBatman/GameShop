@@ -79,7 +79,7 @@ public class ProductDAOImpl implements ProductDAO {
 
     @Override
     public List<Product> listActiveProductsByCategory(int categoryId) {
-        String listAcitveProductsByCategory = "FROM Product WHERE active = TRUE and categoryID = " + categoryId;
+        String listAcitveProductsByCategory = "FROM Product WHERE active = TRUE and category_ID = " + categoryId;
         return sessionFactory.getCurrentSession().createQuery(listAcitveProductsByCategory, Product.class).getResultList();
     }
 

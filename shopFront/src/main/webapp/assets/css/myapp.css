@@ -25,4 +25,5 @@ body {
 
 .content {
     padding-bottom: 60px;
+    position:relative;
 }

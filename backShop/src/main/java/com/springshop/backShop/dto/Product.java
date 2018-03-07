@@ -1,5 +1,7 @@
 package com.springshop.backShop.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.UUID;
 
@@ -20,6 +22,7 @@ public class Product {
 
     private String name;
     private String brand;
+    @JsonIgnore
     private String description;
     @Column(name = "unit_price")
     private double unitPrice;

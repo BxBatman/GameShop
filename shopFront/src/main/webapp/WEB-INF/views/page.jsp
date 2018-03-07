@@ -34,13 +34,21 @@
 
     <script>
         window.menu = '${title}';
+
+        window.contextRoot = '${contextRoot}'
     </script>
 
     <!-- Bootstrap core CSS -->
     <link href="${css}/bootstrap.min.css" rel="stylesheet">
+
+
+
+
     <!--custom bootstrap css-->
     <link href="${css}/bootstrap-slate-theme.css" rel="stylesheet">
 
+    <!--botstrap table css-->
+    <link href="${css}/dataTables.bootstrap4.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="${css}/myapp.css" rel="stylesheet">
@@ -71,11 +79,12 @@
         <%@include file="./contact.jsp" %>
     </c:if>
 
-
+    <div class="content">
     <!--products-->
     <c:if test="${userClickAllProducts == true or userClickCategoryProducts == true}">
         <%@include file="./listProducts.jsp" %>
     </c:if>
+    </div>
 
 
     <!-- /.container -->
@@ -86,6 +95,12 @@
     <!-- Bootstrap core JavaScript -->
     <script src="${js}/jquery.js"></script>
     <script src="${js}/bootstrap.bundle.min.js"></script>
+
+    <!--datatables jquery-->
+    <script src = "${js}/jquery.dataTables.js"></script>
+
+    <!--datatable bootstrap-->
+    <script src="${js}/dataTables.bootstrap4.js"></script>
 
     <!--self coded-->
     <script src="${js}/myapp.js"></script>
