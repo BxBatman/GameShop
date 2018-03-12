@@ -51,10 +51,25 @@
                 <table id="productListTable" class="table table-striped table-borderd">
                     <thead>
                     <tr>
-                        <th>ID</th>
                         <th>Nazwa</th>
+                        <th>Konsola</th>
+                        <th>Cena</th>
+                        <th>Ilo¶æ</th>
+                        <th></th>
                     </tr>
                     </thead>
+
+                    <tfoot>
+                    <tr>
+                        <th>Nazwa</th>
+                        <th>Konsola</th>
+                        <th>Cena</th>
+                        <th>Ilo¶æ</th>
+                        <th></th>
+                    </tr>
+                    </tfoot>
+
+
                 </table>
             </div>
 
