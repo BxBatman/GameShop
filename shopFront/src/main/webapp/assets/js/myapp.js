@@ -46,7 +46,7 @@ $(function () {
         if (window.categoryId == '') {
             jsonUrl = window.contextRoot + '/json/data/all/products';
         } else {
-            jsonUrl = window.contextRoot + 'json/data/category/' + window.categoryId + '/products';
+            jsonUrl = window.contextRoot + '/json/data/category/' + window.categoryId + '/products';
         }
 
         $table.DataTable({
@@ -69,6 +69,13 @@ $(function () {
 
             columns: [
                 {
+                    data:'code',
+                    mRender: function(data,type,row){
+                        return  '<img src="'+window.contextRoot+'/resources/images/'+data+'.jpg" class="dataTableImg"/>'
+                    }
+                },
+
+                {
                     data: 'name'
                 },
                 {
@@ -85,10 +92,11 @@ $(function () {
                 },
                 {
                     data:'id',
+                    bSortable: false,
                     mRender: function(data,type,row){
                         var str='';
-                        str += '<a href="'+window.contextRoot+'/show'+data+'/product" class="btn btn-sm btn-primary">Zobacz</a>';
-                        str += '<a href="'+window.contextRoot+'/cart/add/'+data+'/product">Dodaj do koszyka</a>';
+                        str += '<a href="'+window.contextRoot+'/show/'+data+'/product" class="btn btn-sm btn-primary">Zobacz</a> &#160';
+                        str += '<a href="'+window.contextRoot+'/cart/add/'+data+'/product" class="btn btn-sm btn-primary">Dodaj do koszyka</a>';
                         return str;
                     }
                 }

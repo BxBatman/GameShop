@@ -27,3 +27,13 @@ body {
     padding-bottom: 60px;
     position:relative;
 }
+
+.dataTableImg {
+    width:110px;
+    height:110px;
+}
+
+.singleProductImg{
+    width:250px;
+    height:300px;
+}

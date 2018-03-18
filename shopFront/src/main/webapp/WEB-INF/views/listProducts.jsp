@@ -51,6 +51,7 @@
                 <table id="productListTable" class="table table-striped table-borderd">
                     <thead>
                     <tr>
+                        <th></th>
                         <th>Nazwa</th>
                         <th>Konsola</th>
                         <th>Cena</th>
@@ -61,6 +62,7 @@
 
                     <tfoot>
                     <tr>
+                        <th></th>
                         <th>Nazwa</th>
                         <th>Konsola</th>
                         <th>Cena</th>
