@@ -4,6 +4,9 @@ import com.springshop.backShop.dao.CategoryDAO;
 import com.springshop.backShop.dao.ProductDAO;
 import com.springshop.backShop.dto.Category;
 import com.springshop.backShop.dto.Product;
+import com.springshop.shopFront.exception.ProductNotFoundException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +18,8 @@ import javax.ws.rs.Path;
 @Controller
 public class PageController {
 
+    private static final Logger logger = LoggerFactory.getLogger(PageController. class);
+
     @Autowired
     private CategoryDAO categoryDAO;
 
@@ -25,6 +30,10 @@ public class PageController {
     public ModelAndView index(){
         ModelAndView mv = new ModelAndView("page");
         mv.addObject("title","Strona G³ówna");
+
+        logger.info("Inside PageController - INFO ");
+        logger.debug("Inside PageController - DEBUG");
+
         mv.addObject("categories",categoryDAO.list());
         mv.addObject("userClickHome",true);
         return mv;
@@ -74,10 +83,11 @@ public class PageController {
     }
 
     @RequestMapping(value = "/show/{id}/product")
-    public ModelAndView showSingleProduct(@PathVariable int id){
+    public ModelAndView showSingleProduct(@PathVariable int id) throws ProductNotFoundException {
         ModelAndView mv = new ModelAndView("page");
         Product product = productDAO.get(id);
 
+        if(product == null) throw new ProductNotFoundException();
 
         product.setViews(product.getViews()+1);
         productDAO.update(product);

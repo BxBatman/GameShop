@@ -11,8 +11,8 @@
 
 ">
     
-    <context:component-scan base-package="com.springshop.shopFront.controller"/>
-    <context:component-scan base-package="com.springshop.backShop;"/>
+    <context:component-scan base-package="com.springshop.shopFront"/>
+    <context:component-scan base-package="com.springshop.backShop"/>
 
 
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
