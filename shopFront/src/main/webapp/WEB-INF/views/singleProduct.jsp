@@ -25,9 +25,33 @@
             <p>${product.description}</p>
             <hr/>
             <h4>Cena: <strong> ${product.unitPrice} z³</strong></h4>
-            <h6>Ilo¶æ: ${product.quantity}</h6>
 
-            <a href="${contextRoot}/cart/add/${product.id}/product" class="btn btn-success">Dodaj do koszyka</a>
+
+            <c:choose>
+                <c:when test="${product.quantity < 1}">
+                    <h6>Ilo¶æ: <span style="color:red">Wyprzedane</span></h6>
+                </c:when>
+
+                <c:otherwise>
+                    <h6>Ilo¶æ: ${product.quantity}</h6>
+                </c:otherwise>
+            </c:choose>
+
+
+
+            <c:choose>
+                <c:when test="${product.quantity < 1}">
+                    <a href="javascript:void(0)" class="btn btn-success disabled" style="text-decoration:line-through">Dodaj do koszyka</a>
+                </c:when>
+
+                <c:otherwise>
+                    <a href="${contextRoot}/cart/add/${product.id}/product" class="btn btn-success">Dodaj do koszyka</a>
+                </c:otherwise>
+            </c:choose>
+
+
+
+
             <a href="${contextRoot}/show/all/products" class="btn btn-primary">Cofnij</a>
 
 
