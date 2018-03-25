@@ -1,7 +1,8 @@
 package com.springshop.backShop.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
+import org.hibernate.validator.constraints.NotBlank;
+import javax.validation.constraints.Min;
 import javax.persistence.*;
 import java.util.UUID;
 
@@ -20,11 +21,15 @@ public class Product {
         this.name = name;
     }
 
+    @NotBlank(message = "Prosze wprowadzic nazwe produktu")
     private String name;
+    @NotBlank(message = "Prosze wprowadzic wersje")
     private String brand;
     @JsonIgnore
+    @NotBlank(message = "Prosze wprowadzic opis")
     private String description;
     @Column(name = "unit_price")
+    @Min(value=1,message = "Cena nie moze byc nizsza niz 1")
     private double unitPrice;
     private int quantity;
     @Column(name = "is_active")
@@ -129,5 +134,23 @@ public class Product {
 
     public void setViews(int views) {
         this.views = views;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", code='" + code + '\'' +
+                ", name='" + name + '\'' +
+                ", brand='" + brand + '\'' +
+                ", description='" + description + '\'' +
+                ", unitPrice=" + unitPrice +
+                ", quantity=" + quantity +
+                ", active=" + active +
+                ", categoryId=" + categoryId +
+                ", supplierId=" + supplierId +
+                ", purchases=" + purchases +
+                ", views=" + views +
+                '}';
     }
 }
