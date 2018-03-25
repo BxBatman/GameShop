@@ -2,6 +2,8 @@ package com.springshop.backShop.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.web.multipart.MultipartFile;
+
 import javax.validation.constraints.Min;
 import javax.persistence.*;
 import java.util.UUID;
@@ -40,6 +42,18 @@ public class Product {
     private int supplierId;
     private int purchases;
     private int views;
+
+    public MultipartFile getFile() {
+        return file;
+    }
+
+    public void setFile(MultipartFile file) {
+        this.file = file;
+    }
+
+    @Transient
+    private MultipartFile file;
+
 
 
     public Product(){

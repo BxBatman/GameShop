@@ -5,6 +5,7 @@ import com.springshop.backShop.dao.CategoryDAO;
 import com.springshop.backShop.dao.ProductDAO;
 import com.springshop.backShop.dto.Category;
 import com.springshop.backShop.dto.Product;
+import com.springshop.shopFront.util.FileUploadUtility;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.List;
 
@@ -56,7 +59,7 @@ public class ManagementController {
     }
 
     @RequestMapping(value="/products",method= RequestMethod.POST)
-    public String handleProductSubmission(@Valid @ModelAttribute("product") Product mProduct, BindingResult results, Model model){
+    public String handleProductSubmission(@Valid @ModelAttribute("product") Product mProduct, BindingResult results, Model model, HttpServletRequest request){
 
         if(results.hasErrors()) {
             model.addAttribute("userClickManageProducts",true);
@@ -67,6 +70,13 @@ public class ManagementController {
 
         logger.info(mProduct.toString());
         productDAO.add(mProduct);
+
+
+        if(!mProduct.getFile().getOriginalFilename().equals("")){
+            FileUploadUtility.uploadFile(request,mProduct.getFile(),mProduct.getCode());
+        }
+
+
         return "redirect:/manage/products?operation=product";
     }
 
