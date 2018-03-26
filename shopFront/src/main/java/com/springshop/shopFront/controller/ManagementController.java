@@ -64,7 +64,7 @@ public class ManagementController {
         if(results.hasErrors()) {
             model.addAttribute("userClickManageProducts",true);
             model.addAttribute("title","Manage Products");
-            model.addAttribute("message","Dodanie nie powiod³o siê");
+            model.addAttribute("message1","Dodanie nie powiod³o siê");
             return "page";
         }
 

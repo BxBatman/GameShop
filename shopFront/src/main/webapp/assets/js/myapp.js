@@ -14,7 +14,6 @@ $(function () {
             $('#manageProducts').addClass('active');
             break;
         default:
-            $('#listProducts').addClass('active');
             $('#a_' + menu).addClass('active');
             break;
 
@@ -111,7 +110,7 @@ $(function () {
                                 } else {
                                     str += '<a href="' + window.contextRoot + '/cart/add/' + data + '/product" class="btn btn-sm btn-primary">Dodaj do koszyka</a>';
                                 }
-                                return str;
+                                return '<div class="btn-group-vertical">'+str+'</div>';
                             }
                         }
                     ]

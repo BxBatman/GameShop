@@ -5,12 +5,25 @@
 <div class="container" style="text-align: right; width: 60%">
     <c:if test="${not empty message}">
         <div class="col-xs-8" style="text-align: center">
-            <div class="alert alert-primary alert-dismissable">
+            <div class="alert alert-success alert-dismissable">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
                     ${message}
             </div>
         </div>
     </c:if>
+
+    <c:if test="${not empty message1}">
+        <div class="col-xs-8" style="text-align: center">
+            <div class="alert alert-danger alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    ${message1}
+            </div>
+        </div>
+    </c:if>
+
+
+
+
     <div class="col-md-offset-4 col-md-12" align="center">
         <div class="panel panel-primary">
             <div class="panel-heading">
