@@ -22,15 +22,13 @@
     </c:if>
 
 
-
-
     <div class="col-md-offset-4 col-md-12" align="center">
         <div class="panel panel-primary">
             <div class="panel-heading">
                 <h4>Zarz±dzanie produktami</h4>
             </div>
             <div class="panel-body">
-                <sf:form class="form-horizontal"  modelAttribute="product" action="${contextRoot}/manage/products"
+                <sf:form class="form-horizontal" modelAttribute="product" action="${contextRoot}/manage/products"
                          method="POST" enctype="multipart/form-data">
                     <div class="form-group">
                         <label class="control-label col-md-4" for="name">Wprowad¼ nazwe produktu</label>
@@ -75,12 +73,11 @@
                     </div>
 
 
-
                     <div class="form-group">
                         <label class="control-label col-md-4" for="quantity">Wprowad¼ ilo¶æ</label>
                         <div class="col-md-8">
 
-                            <sf:input type="number" path="quantity" id="quantity"  class="form-control"/>
+                            <sf:input type="number" path="quantity" id="quantity" class="form-control"/>
                         </div>
                     </div>
 
@@ -89,11 +86,10 @@
                         <label class="control-label col-md-4" for="file">Wybierz obraz:</label>
                         <div class="col-md-8">
 
-                            <sf:input type="file" path="file" id="file"  class="form-control"/>
+                            <sf:input type="file" path="file" id="file" class="form-control"/>
+                            <sf:errors path="file" cssClass="help-block" element="em"/>
                         </div>
                     </div>
-
-
 
 
                     <div class="form-group">
@@ -129,5 +125,110 @@
             </div>
         </div>
     </div>
+
+
+
+        <div class="col-xs-12" style="text-align:center">
+            <h3>Dostêpne produkty</h3>
+            <hr/>
+        </div>
+        <div class="col-xs-12" style="text-align: left">
+            <div style="overflow: auto">
+
+                <table id="adminProductsTable" class="table table-striped table-bordered">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>&#160;</th>
+                        <th>Nazwa</th>
+                        <th>Ilo¶æ</th>
+                        <th>Cena</th>
+                        <th>Aktywny</th>
+                        <th>Edytuj</th>
+                    </tr>
+                    </thead>
+                <tbody>
+                    <tr>
+
+                        <td>8</td>
+                        <td>
+                            <img class="adminDataTableImg" src="${contextRoot}/resources//images/PRDF9A8C7C17E.jpg" alt="Forza"/>
+                        </td>
+                        <td>Forza Horizon 3</td>
+                        <td>2</td>
+                        <td>230</td>
+                        <td>
+                            <label class="switch">
+                                <input type="checkbox" checked="checked" value="8"/>
+                                <div class="slider"/>
+                            </label>
+                        </td>
+                        <td>
+                            <a href="${contextRoot}/manage/4/product" class="btn btn-warning">
+                                <span >Edit</span>
+                            </a>
+                        </td>
+                    </tr>
+
+
+
+
+
+
+
+                    <tr>
+
+                        <td>8</td>
+                        <td>
+                            <img class="adminDataTableImg" src="${contextRoot}/resources//images/PRDF9A8C7C17E.jpg" alt="Forza"/>
+                        </td>
+                        <td>Forza Horizon 3</td>
+                        <td>2</td>
+                        <td>230</td>
+                        <td>
+                            <label class="switch">
+                                <input type="checkbox"  value="8"/>
+                                <div class="slider"/>
+                            </label>
+                        </td>
+                        <td>
+                            <a href="${contextRoot}/manage/4/product" class="btn btn-warning">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                            </a>
+                        </td>
+                    </tr>
+
+
+
+
+
+
+
+
+
+                </tbody>
+                    <tfoot>
+                    <tr>
+                        <th>Id</th>
+                        <th>&#160;</th>
+                        <th>Nazwa</th>
+                        <th>Ilo¶æ</th>
+                        <th>Cena</th>
+                        <th>Aktywny</th>
+                        <th>Edytuj</th>
+                    </tr>
+                    </tfoot>
+
+
+                </table>
+
+
+            </div>
+        </div>
+
+
+
+
+
 </div>
 

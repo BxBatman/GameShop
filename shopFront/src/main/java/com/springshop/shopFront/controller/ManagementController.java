@@ -6,6 +6,7 @@ import com.springshop.backShop.dao.ProductDAO;
 import com.springshop.backShop.dto.Category;
 import com.springshop.backShop.dto.Product;
 import com.springshop.shopFront.util.FileUploadUtility;
+import com.springshop.shopFront.validator.ProductValidator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,6 +61,12 @@ public class ManagementController {
 
     @RequestMapping(value="/products",method= RequestMethod.POST)
     public String handleProductSubmission(@Valid @ModelAttribute("product") Product mProduct, BindingResult results, Model model, HttpServletRequest request){
+
+
+        new ProductValidator().validate(mProduct,results);
+
+
+
 
         if(results.hasErrors()) {
             model.addAttribute("userClickManageProducts",true);

@@ -38,6 +38,7 @@
         window.contextRoot = '${contextRoot}'
     </script>
 
+
     <!-- Bootstrap core CSS -->
     <link href="${css}/bootstrap.min.css" rel="stylesheet">
 
@@ -50,6 +51,8 @@
 
     <!-- Custom styles for this template -->
     <link href="${css}/myapp.css" rel="stylesheet">
+
+
 
 </head>
 
@@ -106,7 +109,8 @@
 
     <!--datatable bootstrap-->
     <script src="${js}/dataTables.bootstrap4.js"></script>
-
+    <!-- Bootbox-->
+    <script src="${js}/bootbox.min.js"></script>
     <!--self coded-->
     <script src="${js}/myapp.js"></script>
 </div>

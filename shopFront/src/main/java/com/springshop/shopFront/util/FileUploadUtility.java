@@ -15,7 +15,7 @@ public class FileUploadUtility {
     private static final Logger logger = LoggerFactory.getLogger(FileUploadUtility.class);
 
     public static void uploadFile(HttpServletRequest request, MultipartFile file, String code) {
-        REAL_PATH = request.getSession().getServletContext().getRealPath("/assets/images");
+        REAL_PATH = request.getSession().getServletContext().getRealPath("/assets/images/");
         logger.info(REAL_PATH);
 
         if (!new File(ABS_PATH).exists()) {
