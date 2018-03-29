@@ -20,24 +20,6 @@ $(function () {
         }
 
 
-        //code for jquery datatable
-        //dataset
-
-        var products = [
-            ['1', 'abc'],
-            ['2', 'cxd'],
-            ['3', 'tdd'],
-            ['4', 'aga'],
-            ['5', 'dad'],
-            ['6', 'aww'],
-            ['4', 'aga'],
-            ['5', 'dad'],
-            ['6', 'aww'],
-            ['4', 'aga'],
-            ['5', 'dad'],
-            ['6', 'aww'],
-        ];
-
         var $table = $('#productListTable');
 
 
@@ -242,7 +224,7 @@ $(function () {
                     bSortable: false,
                     mRender: function(data,type,row){
                         var str='';
-                        str += '<a href="${contextRoot}/manage/'+data+'/product" class="btn btn-warning">';
+                        str += '<a href="'+window.contextRoot+'/manage/'+data+'/product" class="btn btn-warning">';
                         str += '<span >Edit</span>';
                         str +=  '</a>';
 
