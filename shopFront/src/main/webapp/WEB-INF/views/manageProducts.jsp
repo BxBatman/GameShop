@@ -232,11 +232,12 @@
                     </button>
                 </div>
                 <div class="modal-body" style="text-align: center">
-                    <sf:form modelAttribute="category" action="${contextRoot}/manage/category" method="POST" class="form-horizontal">
+                    <sf:form id="categoryForm" modelAttribute="category" action="${contextRoot}/manage/category" method="POST" class="form-horizontal">
                         <div class="form-group" >
                             <label for="category_name" class="control-label col-md-4">Nazwa kategorii</label>
                             <div class="col-md-12">
                                 <sf:input type="text" path="name" id="category_name" class="form-control"/>
+                                <sf:errors element="em"/>
                             </div>
                         </div>
 

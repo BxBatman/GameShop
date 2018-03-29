@@ -123,7 +123,7 @@ $(function () {
                     confirm: {
                         label: 'Tak'
                     },
-                    cancel : {
+                    cancel: {
                         label: 'Anuluj'
                     }
 
@@ -143,145 +143,179 @@ $(function () {
         });
 
 
+        var $adminProductsTable = $('#adminProductsTable');
 
-    var $adminProductsTable = $('#adminProductsTable');
 
+        //execute where we have this table
 
-    //execute where we have this table
+        if ($adminProductsTable.length) {
 
-    if ($adminProductsTable.length) {
+            var jsonUrl = window.contextRoot + '/json/data/admin/all/products';
 
-        var jsonUrl = window.contextRoot + '/json/data/admin/all/products';
-
-        $adminProductsTable.DataTable({
-            language: {
-                "lengthMenu": "Poka¿ _MENU_ na stronê",
-                "zeroRecords": "Nic nie znaleziono",
-                "info": "Strony od _PAGE_ do _PAGES_",
-                "search": "Szukaj",
-                "paginate": {
-                    "first": "Pierwszy",
-                    "last": "Ostatni",
-                    "next": "Nastêpny",
-                    "previous": "Wstecz"
-                }
-            },
-            ajax: {
-                url: jsonUrl,
-                dataSrc: ''
-            },
-
-            columns: [
-                {
-                  data: 'id'
-                },
-                {
-                    data: 'code',
-                    mRender: function (data, type, row) {
-                        return '<img src="' + window.contextRoot + '/resources/images/' + data + '.jpg" class="adminDataTableImg"/>';
+            $adminProductsTable.DataTable({
+                language: {
+                    "lengthMenu": "Poka¿ _MENU_ na stronê",
+                    "zeroRecords": "Nic nie znaleziono",
+                    "info": "Strony od _PAGE_ do _PAGES_",
+                    "search": "Szukaj",
+                    "paginate": {
+                        "first": "Pierwszy",
+                        "last": "Ostatni",
+                        "next": "Nastêpny",
+                        "previous": "Wstecz"
                     }
                 },
-
-                {
-                    data: 'name'
+                ajax: {
+                    url: jsonUrl,
+                    dataSrc: ''
                 },
-                {
-                    data: 'quantity',
-                    mRender: function (data, type, row) {
-                        if (data < 1) {
-                            return '<span style="color:red">Wyprzedane</span>';
+
+                columns: [
+                    {
+                        data: 'id'
+                    },
+                    {
+                        data: 'code',
+                        mRender: function (data, type, row) {
+                            return '<img src="' + window.contextRoot + '/resources/images/' + data + '.jpg" class="adminDataTableImg"/>';
                         }
-                        return data;
-                    }
-                },
-                {
-                    data: 'unitPrice',
-                    mRender: function (data, type, row) {
-                        return data + " z³";
-                    }
-                },
-                {
-                    data: 'active',
-                    bSortable: false,
-                    mRender: function(data,type,row){
-                        var str="";
-                        str += '<label class="switch">';
-                        if(data) {
-                            str += '<input type="checkbox" checked="checked" value="' + row.id + '" />';
-                        }
-                        else {
-                            str += '<input type="checkbox" value="' + row.id + '" />';
-                        }
-                        str+=  '<div class="slider"></div>';
-                        str+='</label>';
+                    },
 
-                        return str;
-                    }
-
-                },
-                {
-                    data:'id',
-                    bSortable: false,
-                    mRender: function(data,type,row){
-                        var str='';
-                        str += '<a href="'+window.contextRoot+'/manage/'+data+'/product" class="btn btn-warning">';
-                        str += '<span >Edit</span>';
-                        str +=  '</a>';
-
-                        return str;
-                    }
-                }
-            ],
-            initComplete: function(){
-                var api = this.api();
-                api.$('.switch input[type="checkbox"]').on('change', function () {
-                    var checkbox = $(this);
-                    var checked = checkbox.prop('checked');
-                    var dMsg = (checked) ? 'Czy chcesz uaktywniæ produkt?' :
-                        'Czy chcesz dezaktywowaæ produkt?';
-                    var value = checkbox.prop('value');
-
-                    bootbox.confirm({
-                        size: 'medium',
-                        message: dMsg,
-                        buttons: {
-                            confirm: {
-                                label: 'Tak'
-                            },
-                            cancel : {
-                                label: 'Anuluj'
+                    {
+                        data: 'name'
+                    },
+                    {
+                        data: 'quantity',
+                        mRender: function (data, type, row) {
+                            if (data < 1) {
+                                return '<span style="color:red">Wyprzedane</span>';
                             }
+                            return data;
+                        }
+                    },
+                    {
+                        data: 'unitPrice',
+                        mRender: function (data, type, row) {
+                            return data + " z³";
+                        }
+                    },
+                    {
+                        data: 'active',
+                        bSortable: false,
+                        mRender: function (data, type, row) {
+                            var str = "";
+                            str += '<label class="switch">';
+                            if (data) {
+                                str += '<input type="checkbox" checked="checked" value="' + row.id + '" />';
+                            }
+                            else {
+                                str += '<input type="checkbox" value="' + row.id + '" />';
+                            }
+                            str += '<div class="slider"></div>';
+                            str += '</label>';
+
+                            return str;
+                        }
+
+                    },
+                    {
+                        data: 'id',
+                        bSortable: false,
+                        mRender: function (data, type, row) {
+                            var str = '';
+                            str += '<a href="' + window.contextRoot + '/manage/' + data + '/product" class="btn btn-warning">';
+                            str += '<span >Edit</span>';
+                            str += '</a>';
+
+                            return str;
+                        }
+                    }
+                ],
+                initComplete: function () {
+                    var api = this.api();
+                    api.$('.switch input[type="checkbox"]').on('change', function () {
+                        var checkbox = $(this);
+                        var checked = checkbox.prop('checked');
+                        var dMsg = (checked) ? 'Czy chcesz uaktywniæ produkt?' :
+                            'Czy chcesz dezaktywowaæ produkt?';
+                        var value = checkbox.prop('value');
+
+                        bootbox.confirm({
+                            size: 'medium',
+                            message: dMsg,
+                            buttons: {
+                                confirm: {
+                                    label: 'Tak'
+                                },
+                                cancel: {
+                                    label: 'Anuluj'
+                                }
+
+                            },
+                            callback: function (confirmed) {
+                                if (confirmed) {
+                                    console.log(value);
+
+
+                                    var activationUrl = window.contextRoot + '/manage/product/' + value + '/activation';
+
+                                    $.post(activationUrl, function (data) {
+                                        bootbox.alert({
+                                            size: 'medium',
+                                            message: data
+                                        });
+                                    });
+
+
+                                } else {
+                                    checkbox.prop('checked', !checked);
+                                }
+                            }
+                        });
+                    });
+
+                }
+            });
+        }
+
+        var $categoryForm = $('#categoryForm');
+
+        if ($categoryForm.length) {
+            $categoryForm.validate({
+                    rules: {
+                        name: {
+                            required: true,
+                            minlength: 2
 
                         },
-                        callback: function (confirmed) {
-                            if (confirmed) {
-                                console.log(value);
+                        description: {
+                            required: true
 
-
-                                var activationUrl = window.contextRoot + '/manage/product/' + value + '/activation';
-
-                                $.post(activationUrl,function(data){
-                                    bootbox.alert({
-                                        size: 'medium',
-                                        message: data
-                                    });
-                                });
-
-
-
-                            } else {
-                                checkbox.prop('checked', !checked);
-                            }
                         }
-                    });
-                });
+                    },
+                    messages: {
+                        name: {
+                            required: 'Prosze dodac nazwe kategorii',
+                            minlength: "Nazwa musi miec conajmniej 2 znaki"
+                        },
+                        description: {
+                            required: 'Prosze dodac opis'
+                        }
+                    },
+                    errorElement: 'em',
+                    errorPlacement: function (error, element) {
+                        error.addClass('help-block');
+                        error.insertAfter(element);
+                    }
+                }
+            );
+        }
 
-            }
-        });
+
     }
 
+///validation for cateogry
 
 
-
-    }
-);
+)
+;
