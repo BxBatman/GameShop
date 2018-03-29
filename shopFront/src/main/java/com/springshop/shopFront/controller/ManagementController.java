@@ -13,10 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServlet;
@@ -88,6 +85,20 @@ public class ManagementController {
     }
 
 
+
+    @RequestMapping(value="/product/{id}/activation",method=RequestMethod.POST)
+    @ResponseBody
+    public String handleProductActivation(@PathVariable int id){
+        Product product = productDAO.get(id);
+        boolean isActive = product.isActive();
+
+        product.setActive(!product.isActive());
+
+        productDAO.update(product);
+
+
+        return (isActive)? "Deaktywacja produktu " + product.getName() : "Aktywacja produktu  " + product.getName();
+    }
 
     @ModelAttribute("categories")
     public List<Category> getCategories() {

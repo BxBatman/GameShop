@@ -274,10 +274,19 @@ $(function () {
                         callback: function (confirmed) {
                             if (confirmed) {
                                 console.log(value);
-                                bootbox.alert({
-                                    size: 'medium',
-                                    message: 'Wykona³e¶ operacje na produkcie o id: ' + value
+
+
+                                var activationUrl = window.contextRoot + '/manage/product/' + value + '/activation';
+
+                                $.post(activationUrl,function(data){
+                                    bootbox.alert({
+                                        size: 'medium',
+                                        message: data
+                                    });
                                 });
+
+
+
                             } else {
                                 checkbox.prop('checked', !checked);
                             }
