@@ -65,5 +65,7 @@
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax.activation:activation:1.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: junit:junit:3.8.1" level="project" />
     <orderEntry type="library" name="Maven: jstl:jstl:1.2" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.webflow:spring-webflow:2.5.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.webflow:spring-binding:2.5.0.RELEASE" level="project" />
   </component>
 </module>
