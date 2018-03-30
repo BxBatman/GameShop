@@ -30,6 +30,18 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
+    public User getByEmail(String email) {
+        String selectQuery = "FROM User where email= :email";
+        try{
+            return sessionFactory.getCurrentSession().createQuery(selectQuery,User.class).setParameter("email",email).getSingleResult();
+        }catch(Exception ex){
+            ex.printStackTrace();
+            return null;
+        }
+
+    }
+
+    @Override
     public boolean addAddress(Address address) {
         try{
             sessionFactory.getCurrentSession().persist(address);
@@ -43,9 +55,9 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public boolean addCart(Cart cart) {
+    public boolean updateCart(Cart cart) {
         try{
-            sessionFactory.getCurrentSession().persist(cart);
+            sessionFactory.getCurrentSession().update(cart);
             return true;
         }catch(Exception ex) {
 

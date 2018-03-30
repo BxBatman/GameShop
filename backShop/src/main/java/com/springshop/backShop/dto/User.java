@@ -21,6 +21,19 @@ public class User {
     private String password;
     private boolean enabled = true;
 
+    @OneToOne(mappedBy = "user",cascade=CascadeType.ALL)
+    private Cart cart;
+
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
+    }
+
+
+
     public int getId() {
         return id;
     }

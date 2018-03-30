@@ -27,11 +27,11 @@ public class UserTestCase {
         userDAO = (UserDAO) context.getBean("userDAO");
     }
 
-    @Test
+    /*@Test
     public void testAdd() {
         user = new User();
         user.setFirstName("Bartek");
-        user.setFirstName("Wysocki");
+        user.setLastName("Wysocki");
         user.setEmail("bartek@gmail.com");
         user.setContactNumber("123456789");
         user.setRole("USER");
@@ -57,7 +57,7 @@ public class UserTestCase {
         if(user.getRole().equals("USER")){
             //create cart
             cart = new Cart();
-            cart.setUserId(user.getId());
+            cart.setUser(user);
             assertEquals("Nie udalo sie dodac karty",true,userDAO.addCart(cart));
 
 
@@ -77,5 +77,44 @@ public class UserTestCase {
         }
 
 
+    }*/
+
+
+
+
+   /* @Test
+    public void testAdd() {
+        user = new User();
+        user.setFirstName("Bartek");
+        user.setLastName("Wysocki");
+        user.setEmail("bartek@gmail.com");
+        user.setContactNumber("123456789");
+        user.setRole("USER");
+        user.setPassword("123456");
+
+
+
+
+
+        if(user.getRole().equals("USER")){
+            //create cart
+            cart = new Cart();
+            cart.setUser(user);
+            user.setCart(cart);
+
+        }
+
+        assertEquals("Nie udalo sie dodac uzytkownika",true,userDAO.addUser(user));
     }
+    */
+
+   @Test
+    public void testUpdateCart(){
+       user = userDAO.getByEmail("bartek@gmail.com");
+       cart = user.getCart();
+       cart.setGrandTotal(5555);
+       cart.setCartLines(2);
+       assertEquals("Nie udalo sie aktualizowac karty",true,userDAO.updateCart(cart));
+   }
+
 }
