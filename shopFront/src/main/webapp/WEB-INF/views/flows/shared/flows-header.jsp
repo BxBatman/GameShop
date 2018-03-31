@@ -43,6 +43,7 @@
     <link href="${css}/bootstrap.min.css" rel="stylesheet">
 
 
+
     <!--custom bootstrap css-->
     <link href="${css}/bootstrap-slate-theme.css" rel="stylesheet">
 
@@ -59,4 +60,4 @@
 <body>
 <div class="wrapper">
     <%@include file="../shared/flows-navbar.jsp"%>
-<div class="content"
+<div class="content">
