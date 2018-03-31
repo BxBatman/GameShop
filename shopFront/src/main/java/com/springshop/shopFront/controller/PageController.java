@@ -100,4 +100,11 @@ public class PageController {
 
         return mv;
     }
+
+    @RequestMapping(value = "/register")
+    public ModelAndView register(){
+        ModelAndView mv = new ModelAndView("page");
+        mv.addObject("title","Zarejestruj siê");
+        return mv;
+    }
 }

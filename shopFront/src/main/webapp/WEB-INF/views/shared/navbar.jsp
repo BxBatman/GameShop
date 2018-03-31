@@ -21,7 +21,18 @@
                 <li id="manageProducts" class="nav-item">
                     <a class="nav-link" href="${contextRoot}/manage/products">Zarz±dzaj produktami</a>
                 </li>
+
+                <li id="register" class="nav-item">
+                    <a class="nav-link" href="${contextRoot}/register">Zarejestruj siê</a>
+                </li>
+                <li id="login" class="nav-item">
+                    <a class="nav-link"  href="${contextRoot}/login">Zaloguj siê</a>
+                </li>
+
             </ul>
+
+
+
         </div>
     </div>
 </nav>
