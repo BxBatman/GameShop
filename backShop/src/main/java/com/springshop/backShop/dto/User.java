@@ -1,6 +1,7 @@
 package com.springshop.backShop.dto;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 
 @Entity
@@ -12,19 +13,47 @@ public class User implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     @Column(name="first_name")
+    @NotBlank(message = "Imię nie może być puste")
     private String firstName;
+
+    @NotBlank(message = "Nazwisko nie może być puste")
     @Column(name="last_name")
     private String lastName;
+
+    @NotBlank(message = "Prosze podać adres e-mail")
     private String email;
+
     @Column(name="contact_number")
+    @NotBlank(message = "Prosze podać numer telefonu")
     private String contactNumber;
     private String role;
+
+    @NotBlank(message = "Podaj hasło")
     private String password;
     private boolean enabled = true;
 
+    @Transient
+    private String confirmPassword;
+
+
+
+
     @OneToOne(mappedBy = "user",cascade=CascadeType.ALL)
     private Cart cart;
+
+
+
+
+
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
+    }
 
     public Cart getCart() {
         return cart;

@@ -3,79 +3,94 @@
 <%@include file="../shared/flows-header.jsp" %>
 <div class="container" style="width: 60%;" align="right">
 
-        <div class="col-md-12 col-md-offset-4" align="center" >
-            <div class="panel panel-primary">
-                <div class="panel panel-heading">
-                    <h4>Zarejestruj siê - Dane personalne</h4>
-                </div>
-                <div class="panel-body">
-                    <sf:form method="POST" class="form-horizontal" id="registerForm" modelAttribute="user">
-                    <div class="form-group" >
-                        <label class="control-label col-md-4">Imie</label>
-                        <div class="col-md-8">
-                            <sf:input type="text" path="firstName" class="form-control" placeholder="Imie"/>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="control-label col-md-4">Nazwisko</label>
-                        <div class="col-md-8">
-                            <sf:input type="text" path="lastName" class="form-control" placeholder="Nazwisko"/>
-                        </div>
-                    </div>
-
-
-                    <div class="form-group">
-                        <label class="control-label col-md-4">E-mail</label>
-                        <div class="col-md-8">
-                            <sf:input type="text" path="email" class="form-control"
-                                      placeholder="example@example.com"/>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="control-label col-md-4">Numer telefonu</label>
-                        <div class="col-md-8">
-                            <sf:input type="text" path="contactNumber" class="form-control"
-                                      placeholder="Nr.telefonu" maxlength="9"/>
-                        </div>
-                    </div>
-
-
-                    <div class="form-group">
-                        <label class="control-label col-md-4">Has³o</label>
-                        <div class="col-md-8">
-                            <sf:input type="password" path="password" class="form-control"
-                                      placeholder="Has³o"/>
-                        </div>
-                    </div>
-
-                    <label class="control-label col-md-4">Rodzaj konta</label>
+    <div class="col-md-12 col-md-offset-4" align="center">
+        <div class="panel panel-primary">
+            <div class="panel panel-heading">
+                <h4>Zarejestruj siê - Dane personalne</h4>
+            </div>
+            <div class="panel-body">
+                <sf:form method="POST" class="form-horizontal" id="registerForm" modelAttribute="user">
+                <div class="form-group">
+                    <label class="control-label col-md-4">Imie</label>
                     <div class="col-md-8">
-                        <label class="radio-inline">
-                            <sf:radiobutton path="role" value="USER" checked="checked"/>U¿ytkownik
-                        </label>
-                        <label class="radio-inline">
-                            <sf:radiobutton path="role" value="SUPPLIER"/>Dostawca
-                        </label>
+                        <sf:input type="text" path="firstName" class="form-control" placeholder="Imie"/>
+                        <sf:errors path="firstName" cssClass="help-block" element="em"/>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <div class="cold-md-offset-4 col-md-8">
-                        <button type="submit" class="btn btn-primary" name="_eventId_billing">
-                            Id¼ dalej
-                        </button>
+                    <label class="control-label col-md-4">Nazwisko</label>
+                    <div class="col-md-8">
+                        <sf:input type="text" path="lastName" class="form-control" placeholder="Nazwisko"/>
+                        <sf:errors path="lastName" cssClass="help-block" element="em"/>
                     </div>
                 </div>
 
-                </sf:form>
+
+                <div class="form-group">
+                    <label class="control-label col-md-4">E-mail</label>
+                    <div class="col-md-8">
+                        <sf:input type="text" path="email" class="form-control"
+                                  placeholder="example@example.com"/>
+                        <sf:errors path="email" cssClass="help-block" element="em"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-4">Numer telefonu</label>
+                    <div class="col-md-8">
+                        <sf:input type="text" path="contactNumber" class="form-control"
+                                  placeholder="Nr.telefonu" maxlength="9"/>
+                        <sf:errors path="contactNumber" cssClass="help-block" element="em"/>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="control-label col-md-4">Has³o</label>
+                    <div class="col-md-8">
+                        <sf:input type="password" path="password" class="form-control"
+                                  placeholder="Has³o"/>
+                        <sf:errors path="password" cssClass="help-block" element="em"/>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="control-label col-md-4">Potwierd¼ has³o</label>
+                    <div class="col-md-8">
+                        <sf:input type="password" path="confirmPassword" class="form-control"
+                                  placeholder="Has³o"/>
+                        <sf:errors path="confirmPassword" cssClass="help-block" element="em"/>
+                    </div>
+                </div>
+
+                <label class="control-label col-md-4">Rodzaj konta</label>
+                <div class="col-md-8">
+                    <label class="radio-inline">
+                        <sf:radiobutton path="role" value="USER" checked="checked"/>U¿ytkownik
+                    </label>
+                    <label class="radio-inline">
+                        <sf:radiobutton path="role" value="SUPPLIER"/>Dostawca
+                    </label>
+                </div>
             </div>
+
+            <div class="form-group">
+                <div class="cold-md-offset-4 col-md-8">
+                    <button type="submit" class="btn btn-primary" name="_eventId_billing">
+                        Id¼ dalej
+                    </button>
+                </div>
+            </div>
+
+
+            </sf:form>
         </div>
+    </div>
 
 
 </div>
-
 
 
 <!-- /.container -->

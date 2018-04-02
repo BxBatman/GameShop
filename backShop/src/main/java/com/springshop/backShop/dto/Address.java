@@ -1,6 +1,7 @@
 package com.springshop.backShop.dto;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 
 @Entity
@@ -13,13 +14,18 @@ public class Address implements Serializable{
     private int id;
     @ManyToOne
     private User user;
+    @NotBlank(message = "Prosze podać adres")
     @Column(name="address_line_one")
     private String addressLineOne;
     @Column(name="address_line_two")
     private String addressLineTwo;
+    @NotBlank(message = "Prosze podać miasto")
     private String city;
+    @NotBlank(message = "Prosze podać województwo")
     private String state;
+    @NotBlank(message = "Prosze podać kraj")
     private String country;
+    @NotBlank(message = "Prosze podać kod pocztowy")
     @Column(name="postal_code")
     private String postalCode;
     private boolean shipping;
