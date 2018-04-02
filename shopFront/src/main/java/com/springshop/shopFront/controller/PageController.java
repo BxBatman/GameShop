@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.ws.rs.Path;
@@ -105,6 +106,24 @@ public class PageController {
     public ModelAndView register(){
         ModelAndView mv = new ModelAndView("page");
         mv.addObject("title","Zarejestruj siê");
+        return mv;
+    }
+
+
+    @RequestMapping("favicon.ico")
+    String favicon() {
+
+        return "forward:/resources/assets/favicon.ico";
+    }
+
+
+    @RequestMapping(value = "/login")
+    public ModelAndView login(@RequestParam(name="error",required = false)String error){
+        ModelAndView mv = new ModelAndView("login");
+        if(error!=null){
+            mv.addObject("message","Niepoprawny login lub has³o");
+        }
+        mv.addObject("title","Zaloguj siê");
         return mv;
     }
 }

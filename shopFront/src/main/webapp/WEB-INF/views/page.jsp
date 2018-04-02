@@ -29,6 +29,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta name="_csrf" content="${_csrf.token}">
+    <meta name="_csrf_header" content="${_csrf.headerName}">
 
     <title>Sprzeda¿ gier - ${title}</title>
 
@@ -53,7 +55,6 @@
     <link href="${css}/myapp.css" rel="stylesheet">
 
 
-
 </head>
 
 <body>
@@ -67,29 +68,29 @@
         <c:if test="${userClickHome == true}">
             <%@include file="./home.jsp" %>
         </c:if>
-    </div>
-
-    <!--about-->
-    <c:if test="${userClickAbout == true}">
-        <%@include file="./about.jsp" %>
-    </c:if>
 
 
-    <!--contact-->
-    <c:if test="${userClickContact == true}">
-        <%@include file="./contact.jsp" %>
-    </c:if>
+        <!--about-->
+        <c:if test="${userClickAbout == true}">
+            <%@include file="./about.jsp" %>
+        </c:if>
 
-    <div class="content">
+
+        <!--contact-->
+        <c:if test="${userClickContact == true}">
+            <%@include file="./contact.jsp" %>
+        </c:if>
+
+
         <!--products-->
         <c:if test="${userClickAllProducts == true or userClickCategoryProducts == true}">
             <%@include file="./listProducts.jsp" %>
         </c:if>
         <c:if test="${userClickShowProduct == true}">
-            <%@include file="./singleProduct.jsp"%>
+            <%@include file="./singleProduct.jsp" %>
         </c:if>
         <c:if test="${userClickManageProducts == true}">
-            <%@include file="./manageProducts.jsp"%>
+            <%@include file="./manageProducts.jsp" %>
         </c:if>
 
     </div>
