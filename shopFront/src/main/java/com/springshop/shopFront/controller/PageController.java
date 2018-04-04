@@ -126,4 +126,14 @@ public class PageController {
         mv.addObject("title","Zaloguj siê");
         return mv;
     }
+
+
+    @RequestMapping(value = "/access-denied")
+    public ModelAndView accessDenied(){
+        ModelAndView mv = new ModelAndView("error");
+        mv.addObject("title","403 - access denied");
+        mv.addObject("errorTitle","403-access denied");
+        mv.addObject("errorDescription","403-access denied");
+        return mv;
+    }
 }
