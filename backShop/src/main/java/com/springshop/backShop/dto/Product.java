@@ -33,6 +33,7 @@ public class Product {
     @Column(name = "unit_price")
     @Min(value=1,message = "Cena nie moze byc nizsza niz 1")
     private double unitPrice;
+    @Min(value = 0, message = "Ilosc nie moze byc mniejsza od 0")
     private int quantity;
     @Column(name = "is_active")
     private boolean active;

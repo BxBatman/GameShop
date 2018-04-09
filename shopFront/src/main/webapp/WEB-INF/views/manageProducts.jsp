@@ -78,6 +78,7 @@
                         <div class="col-md-8">
 
                             <sf:input type="number" path="quantity" id="quantity" class="form-control"/>
+                            <sf:errors path="quantity" cssClass="help-block" element="em"/>
                         </div>
                     </div>
 
