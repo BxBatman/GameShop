@@ -45,9 +45,9 @@
                         <ul class="dropdown-menu">
 
                             <security:authorize access="hasAnyAuthority('USER')">
-                                <li><a class="nav-link" href="${contextRoot}/cart">
+                                <li><a class="nav-link" href="${contextRoot}/cart/show">
                                     <span class="badge">${userModel.cart.cartLines}</span>
-                                        ${userMode.cart.grandTotal} z³
+                                        ${userModel.cart.grandTotal} z³
                                 </a></li>
                                 <li class="divider" role="separator"/>
                             </security:authorize>
