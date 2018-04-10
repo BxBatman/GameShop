@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=ISO-8859-2" language="java" pageEncoding="ISO-8859-2"%>
 <div class="container">
 
     <c:choose>
@@ -14,38 +15,47 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td data-th="Product">
-                        <div class="row">
-                            <div class="col-sm-2 hidden-xs"><img src="http://placehold.it/100x100" alt="..."
-                                                                 class="img-responsive"/></div>
-                            <div class="col-sm-10">
-                                <h4 class="nomargin">Product 1</h4>
-                                <p>Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                                    pariatur. Lorem ipsum dolor sit amet.</p>
+
+                <c:forEach items="${cartLines}" var="cartLine">
+                    <tr>
+                        <td data-th="Product">
+                            <div class="row">
+                                <div class="col-sm-2 hidden-xs"><img src="${images}/${cartLine.product.code}.jpg" alt="${cartLine.product.name}"
+                                                                     class="img-responsive cartImg"/></div>
+                                <div class="col-sm-10">
+                                    <h4 class="nomargin">${cartLine.product.name}
+                                    <c:if test="${cartLine.available == false}">
+                                        <strong class="unavailable">(Niedostêpny)</strong>
+
+                                    </c:if>
+                                    </h4>
+                                    <p>Wersja - ${cartLine.product.brand}</p>
+                                    <p>Opis - ${cartLine.product.description}</p>
+                                </div>
                             </div>
-                        </div>
-                    </td>
-                    <td data-th="Price">$1.99</td>
-                    <td data-th="Quantity">
-                        <input type="number" class="form-control text-center" value="1">
-                    </td>
-                    <td data-th="Subtotal" class="text-center">1.99</td>
-                    <td class="actions" data-th="">
-                        <button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
-                        <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
-                    </td>
-                </tr>
+                        </td>
+                        <td data-th="Price">${cartLine.buyingPrice} z³</td>
+                        <td data-th="Quantity">
+                            <input type="number" class="form-control text-center" value="${cartLine.productCount}">
+                        </td>
+                        <td data-th="Subtotal" class="text-center">${cartLine.total} z³</td>
+                        <td class="actions" data-th="">
+                            <button class="btn btn-info btn-sm"><i class="fa fa-refresh">Od¶wie¿</i></button>
+                            <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o">Usuñ</i></button>
+                        </td>
+                    </tr>
+                </c:forEach>
+
                 </tbody>
                 <tfoot>
                 <tr class="visible-xs">
-                    <td class="text-center"><strong>Total 1.99</strong></td>
+                    <td class="text-center"><strong>Ca³kowity koszt ${userModel.cart.grandTotal} z³ </strong></td>
                 </tr>
                 <tr>
-                    <td><a href="#" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+                    <td><a href="#" class="btn btn-warning"><i class="fa fa-angle-left"></i> Kontynuuj zakupy</a></td>
                     <td colspan="2" class="hidden-xs"></td>
-                    <td class="hidden-xs text-center"><strong>Total $1.99</strong></td>
-                    <td><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a>
+                    <td class="hidden-xs text-center"><strong>Ca³kowity koszt ${userModel.cart.grandTotal} z³</strong></td>
+                    <td><a href="#" class="btn btn-success btn-block">P³atno¶æ <i class="fa fa-angle-right"></i></a>
                     </td>
                 </tr>
                 </tfoot>
@@ -54,7 +64,7 @@
         <c:otherwise>
             <div class="jumbotron">
                 <div class="text-center">
-                    <h1>Twoja karta jest pusta</h1>
+                    <h1>Twój koszyk jest pusty</h1>
                 </div>
             </div>
         </c:otherwise>

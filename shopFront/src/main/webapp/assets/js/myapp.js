@@ -13,6 +13,8 @@ $(function () {
         case 'Zarz±dzaj produktami':
             $('#manageProducts').addClass('active');
             break;
+        case 'Koszyk':
+                $('#userCart').addClass('active');
         default:
             $('#a_' + menu).addClass('active');
             break;
