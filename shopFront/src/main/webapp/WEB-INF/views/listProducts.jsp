@@ -48,31 +48,36 @@
 
 
             <div class="col-lg-12">
-                <table id="productListTable" class="table table-striped table-borderd">
-                    <thead>
-                    <tr>
-                        <th></th>
-                        <th>Nazwa</th>
-                        <th>Konsola</th>
-                        <th>Cena</th>
-                        <th>Ilo뜻</th>
-                        <th></th>
-                    </tr>
-                    </thead>
+                <div class="container-fluid">
+                    <div class="table-responsive">
+                        <table id="productListTable" class="table table-striped table-borderd">
+                            <thead>
+                            <tr>
+                                <th></th>
+                                <th>Nazwa</th>
+                                <th>Konsola</th>
+                                <th>Cena</th>
+                                <th>Ilo뜻</th>
+                                <th></th>
+                            </tr>
+                            </thead>
 
-                    <tfoot>
-                    <tr>
-                        <th></th>
-                        <th>Nazwa</th>
-                        <th>Konsola</th>
-                        <th>Cena</th>
-                        <th>Ilo뜻</th>
-                        <th></th>
-                    </tr>
-                    </tfoot>
+                            <tfoot>
+                            <tr>
+                                <th></th>
+                                <th>Nazwa</th>
+                                <th>Konsola</th>
+                                <th>Cena</th>
+                                <th>Ilo뜻</th>
+                                <th></th>
+                            </tr>
+                            </tfoot>
 
 
-                </table>
+                        </table>
+                    </div>
+                </div>
+
             </div>
 
 

@@ -97,12 +97,11 @@ $(function () {
                     mRender: function (data, type, row) {
                         var str = '';
                         str += '<a href="' + window.contextRoot + '/show/' + data + '/product" class="btn btn-sm btn-primary">Zobacz</a> &#160';
-                        if (row.quantity < 1) {
-                            str += '<a href="javascript:void(0)" class="btn btn-sm btn-primary disabled">Dodaj do koszyka</a>';
-                        } else {
-                            if (userRole == 'ADMIN') {
-                                str += '<a href="' + window.contextRoot + '/manage/' + data + '/product" class="btn btn-sm btn-warning">Dodaj do koszyka</a>';
-
+                        if(userRole=='ADMIN'){
+                            str += '<a href="' + window.contextRoot + '/manage/' + data + '/product" class="btn btn-sm btn-warning">Edytuj</a>';
+                        }else {
+                            if (row.quantity < 1) {
+                                str += '<a href="javascript:void(0)" class="btn btn-sm btn-primary disabled">Dodaj do koszyka</a>';
                             } else {
                                 str += '<a href="' + window.contextRoot + '/cart/add/' + data + '/product" class="btn btn-sm btn-primary">Dodaj do koszyka</a>';
                             }

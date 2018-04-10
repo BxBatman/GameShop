@@ -36,7 +36,7 @@ public class UserDAOImpl implements UserDAO {
         try {
             return sessionFactory.getCurrentSession().createQuery(selectQuery, User.class).setParameter("email", email).getSingleResult();
         } catch (Exception ex) {
-           ex.printStackTrace();
+           //ex.printStackTrace();
             return null;
         }
 
@@ -79,15 +79,5 @@ public class UserDAOImpl implements UserDAO {
         }
     }
 
-    @Override
-    public boolean updateCart(Cart cart) {
-        try {
-            sessionFactory.getCurrentSession().update(cart);
-            return true;
-        } catch (Exception ex) {
 
-            ex.printStackTrace();
-            return false;
-        }
-    }
 }
