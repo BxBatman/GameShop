@@ -22,9 +22,9 @@ $(function () {
     var token = $('meta[name="_csrf"]').attr('content');
     var header = $('meta[name="_csrf_header"]').attr('content');
 
-    if(token.length > 0 && header.length > 0){
-        $(document).ajaxSend(function(e,xhr,options){
-            xhr.setRequestHeader(header,token);
+    if (token.length > 0 && header.length > 0) {
+        $(document).ajaxSend(function (e, xhr, options) {
+            xhr.setRequestHeader(header, token);
         })
 
     }
@@ -100,7 +100,12 @@ $(function () {
                         if (row.quantity < 1) {
                             str += '<a href="javascript:void(0)" class="btn btn-sm btn-primary disabled">Dodaj do koszyka</a>';
                         } else {
-                            str += '<a href="' + window.contextRoot + '/cart/add/' + data + '/product" class="btn btn-sm btn-primary">Dodaj do koszyka</a>';
+                            if (userRole == 'ADMIN') {
+                                str += '<a href="' + window.contextRoot + '/manage/' + data + '/product" class="btn btn-sm btn-warning">Dodaj do koszyka</a>';
+
+                            } else {
+                                str += '<a href="' + window.contextRoot + '/cart/add/' + data + '/product" class="btn btn-sm btn-primary">Dodaj do koszyka</a>';
+                            }
                         }
                         return '<div class="btn-group-vertical">' + str + '</div>';
                     }
@@ -356,9 +361,6 @@ $(function () {
             }
         );
     }
-
-
-
 
 
 });

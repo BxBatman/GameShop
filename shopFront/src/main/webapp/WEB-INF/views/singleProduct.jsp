@@ -38,18 +38,25 @@
             </c:choose>
 
 
+            <security:authorize access="hasAuthority('USER')">
+                <c:choose>
+                    <c:when test="${product.quantity < 1}">
+                        <a href="javascript:void(0)" class="btn btn-success disabled"
+                           style="text-decoration:line-through">Dodaj do koszyka</a>
+                    </c:when>
 
-            <c:choose>
-                <c:when test="${product.quantity < 1}">
-                    <a href="javascript:void(0)" class="btn btn-success disabled" style="text-decoration:line-through">Dodaj do koszyka</a>
-                </c:when>
+                    <c:otherwise>
+                        <a href="${contextRoot}/cart/add/${product.id}/product" class="btn btn-success">Dodaj do
+                            koszyka</a>
+                    </c:otherwise>
+                </c:choose>
+            </security:authorize>
 
-                <c:otherwise>
-                    <a href="${contextRoot}/cart/add/${product.id}/product" class="btn btn-success">Dodaj do koszyka</a>
-                </c:otherwise>
-            </c:choose>
+            <security:authorize access="hasAuthority('ADMIN')">
 
+                <a href="${contextRoot}/manage/${product.id}/product" class="btn btn-warning">Edytuj</a>
 
+            </security:authorize>
 
 
             <a href="${contextRoot}/show/all/products" class="btn btn-primary">Cofnij</a>
