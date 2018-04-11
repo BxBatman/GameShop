@@ -49,11 +49,6 @@ public class CartService {
             if(product.getQuantity() < count){
                 return "result=unavailable";
             }
-
-
-
-
-
             cartLine.setProductCount(count);
             cartLine.setBuyingPrice(product.getUnitPrice());
 
@@ -123,9 +118,9 @@ public class CartService {
 
         }else {
             if(cartLine.getProductCount() < 3) {
-                response = this.manageCartLine(cart.getId(),cartLine.getProductCount() + 1);
+                response = this.manageCartLine(cartLine.getId(),cartLine.getProductCount() + 1);
             }else {
-                response = "result = maximum";
+                response = "result=maximum";
             }
         }
 

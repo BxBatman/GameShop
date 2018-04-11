@@ -30,7 +30,7 @@
                             <div class="row">
                                 <div class="col-sm-2 hidden-xs"><img src="${images}/${cartLine.product.code}.jpg" alt="${cartLine.product.name}"
                                                                      class="img-responsive cartImg"/></div>
-                                <div class="col-sm-10">
+                                <div class="col-sm-8" style="margin-left: 20px">
                                     <h4 class="nomargin">${cartLine.product.name}
                                     <c:if test="${cartLine.available == false}">
                                         <strong class="unavailable">(Niedostêpny)</strong>
@@ -56,9 +56,6 @@
 
                 </tbody>
                 <tfoot>
-                <tr class="visible-xs">
-                    <td class="text-center"><strong>Ca³kowity koszt ${userModel.cart.grandTotal} z³ </strong></td>
-                </tr>
                 <tr>
                     <td><a href="${contextRoot}/show/all/products" class="btn btn-warning"><i class="fa fa-angle-left"></i> Kontynuuj zakupy</a></td>
                     <td colspan="2" class="hidden-xs"></td>
