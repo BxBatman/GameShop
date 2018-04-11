@@ -70,6 +70,7 @@ public class ProductDAOImpl implements ProductDAO {
         return false;
     }
 
+
     @Override
     public List<Product> listActiveProducts() {
         String selectActiveProducts = "FROM Product WHERE active = TRUE ";
