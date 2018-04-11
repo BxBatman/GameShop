@@ -14,7 +14,7 @@ $(function () {
             $('#manageProducts').addClass('active');
             break;
         case 'Koszyk':
-                $('#userCart').addClass('active');
+            $('#userCart').addClass('active');
         default:
             $('#a_' + menu).addClass('active');
             break;
@@ -99,9 +99,9 @@ $(function () {
                     mRender: function (data, type, row) {
                         var str = '';
                         str += '<a href="' + window.contextRoot + '/show/' + data + '/product" class="btn btn-sm btn-primary">Zobacz</a> &#160';
-                        if(userRole=='ADMIN'){
+                        if (userRole == 'ADMIN') {
                             str += '<a href="' + window.contextRoot + '/manage/' + data + '/product" class="btn btn-sm btn-warning">Edytuj</a>';
-                        }else {
+                        } else {
                             if (row.quantity < 1) {
                                 str += '<a href="javascript:void(0)" class="btn btn-sm btn-primary disabled">Dodaj do koszyka</a>';
                             } else {
@@ -362,6 +362,30 @@ $(function () {
             }
         );
     }
+
+    $('button[name="refreshCart"]').click(function () {
+        var cartLineId = $(this).attr('value');
+        var countElement = $('#count_' + cartLineId);
+        var originalCount = countElement.attr('value');
+        var currentCount = countElement.val();
+
+
+        if (currentCount !== originalCount) {
+            if(currentCount < 1 || currentCount >3){
+                countElement.val(originalCount);
+                bootbox.alert({
+                   size: 'medium',
+                    message: 'Produkt mo¿e mieæ minimaln± ilo¶æ 1 oraz maksymalna 3'
+                });
+            }else{
+                var updateUrl = window.contextRoot+'/cart/'+cartLineId + '/update?count=' + currentCount;
+                window.location.href = updateUrl;
+            }
+
+        }
+
+
+    });
 
 
 });

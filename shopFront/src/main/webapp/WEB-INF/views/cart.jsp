@@ -1,5 +1,13 @@
 <%@ page contentType="text/html;charset=ISO-8859-2" language="java" pageEncoding="ISO-8859-2"%>
 <div class="container">
+    <c:if test="${not empty message}">
+        <div class="alert alert-info">
+            <h3 class="text-center">
+                ${message}
+            </h3>
+        </div>
+    </c:if>
+
 
     <c:choose>
 
@@ -36,12 +44,12 @@
                         </td>
                         <td data-th="Price">${cartLine.buyingPrice} z³</td>
                         <td data-th="Quantity">
-                            <input type="number" class="form-control text-center" value="${cartLine.productCount}">
+                            <input type="number" id="count_${cartLine.id}" min="1"  max="3" class="form-control text-center" value="${cartLine.productCount}">
                         </td>
                         <td data-th="Subtotal" class="text-center">${cartLine.total} z³</td>
                         <td class="actions" data-th="">
-                            <button class="btn btn-info btn-sm"><i class="fa fa-refresh">Od¶wie¿</i></button>
-                            <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o">Usuñ</i></button>
+                            <button type="button" name="refreshCart" value="${cartLine.id}" class="btn btn-info btn-sm"><i class="fa fa-refresh">Od¶wie¿</i></button>
+                            <a href="${contextRoot}/cart/${cartLine.id}/delete" class="btn btn-danger btn-sm"><i class="fa fa-trash-o">Usuñ</i></a>
                         </td>
                     </tr>
                 </c:forEach>
@@ -52,7 +60,7 @@
                     <td class="text-center"><strong>Ca³kowity koszt ${userModel.cart.grandTotal} z³ </strong></td>
                 </tr>
                 <tr>
-                    <td><a href="#" class="btn btn-warning"><i class="fa fa-angle-left"></i> Kontynuuj zakupy</a></td>
+                    <td><a href="${contextRoot}/show/all/products" class="btn btn-warning"><i class="fa fa-angle-left"></i> Kontynuuj zakupy</a></td>
                     <td colspan="2" class="hidden-xs"></td>
                     <td class="hidden-xs text-center"><strong>Ca³kowity koszt ${userModel.cart.grandTotal} z³</strong></td>
                     <td><a href="#" class="btn btn-success btn-block">P³atno¶æ <i class="fa fa-angle-right"></i></a>
