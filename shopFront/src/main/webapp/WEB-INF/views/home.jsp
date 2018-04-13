@@ -39,23 +39,42 @@
             </div>
 
             <div class="row">
-
+            <c:forEach begin="0" end="8" items="${products}" var="product">
                 <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card h-100">
-                        <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                    <div class="card h-100" style="text-align: center; padding-top: 10px">
+                        <a><img class="randomImg" src="${contextRoot}/resources/images/${product.code}.jpg" alt="${product.name}"></a>
                         <div class="card-body">
                             <h4 class="card-title">
-                                <a href="#">Item One</a>
+                                <a href="${contextRoot}/show/${product.id}/product">${product.name}</a>
                             </h4>
-                            <h5>$24.99</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+                            <h5>${product.unitPrice} z�</h5>
+                            <p class="card-text">${product.description}</p>
                         </div>
                         <div class="card-footer">
-                            <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                            <c:if test="${product.views >= 10}" >
+                            <big class="text-muted">Popularno뜻: &#9733; &#9733; &#9733; &#9733; &#9733;</big>
+                            </c:if>
+                            <c:if test="${product.views >= 8 && product.views < 10}" >
+                                <big class="text-muted">Popularno뜻: &#9733; &#9733; &#9733; &#9733; &#9734;</big>
+                            </c:if>
+                            <c:if test="${product.views >= 6 && product.views < 8}" >
+                                <big class="text-muted">Popularno뜻: &#9733; &#9733; &#9733; &#9734; &#9734;</big>
+                            </c:if>
+                            <c:if test="${product.views >= 4 && product.views < 6}" >
+                                <big class="text-muted">Popularno뜻: &#9733; &#9733; &#9734; &#9734; &#9734;</big>
+                            </c:if>
+                            <c:if test="${product.views >= 2 && product.views < 4}" >
+                                <big class="text-muted">Popularno뜻: &#9733; &#9734; &#9734; &#9734; &#9734;</big>
+                            </c:if>
+                            <c:if test="${product.views >= 0 && product.views < 2}" >
+                                <big class="text-muted">Popularno뜻: &#9734; &#9734; &#9734; &#9734; &#9734;</big>
+                            </c:if>
+
                         </div>
                     </div>
                 </div>
-
+            </c:forEach>
+    <!--
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card h-100">
                         <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
@@ -135,7 +154,7 @@
                         </div>
                     </div>
                 </div>
-
+        -->
             </div>
             <!-- /.row -->
 

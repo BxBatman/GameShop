@@ -20,6 +20,8 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.Path;
+import java.util.Collections;
+import java.util.List;
 
 @Controller
 public class PageController {
@@ -41,6 +43,12 @@ public class PageController {
         logger.debug("Inside PageController - DEBUG");
 
         mv.addObject("categories",categoryDAO.list());
+
+        List<Product> shuffleProducts = productDAO.listActiveProducts();
+        Collections.shuffle(shuffleProducts);
+
+
+        mv.addObject("products",shuffleProducts);
         mv.addObject("userClickHome",true);
         return mv;
     }
