@@ -44,9 +44,6 @@ public class User implements Serializable{
     private Cart cart;
 
 
-
-
-
     public String getConfirmPassword() {
         return confirmPassword;
     }

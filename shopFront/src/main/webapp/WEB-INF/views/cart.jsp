@@ -60,7 +60,7 @@
                     <td><a href="${contextRoot}/show/all/products" class="btn btn-warning"><i class="fa fa-angle-left"></i> Kontynuuj zakupy</a></td>
                     <td colspan="2" class="hidden-xs"></td>
                     <td class="hidden-xs text-center"><strong>Ca³kowity koszt ${userModel.cart.grandTotal} z³</strong></td>
-                    <td><a href="#" class="btn btn-success btn-block">P³atno¶æ <i class="fa fa-angle-right"></i></a>
+                    <td><a href="${contextRoot}/cart/show/payment" class="btn btn-success btn-block">P³atno¶æ <i class="fa fa-angle-right"></i></a>
                     </td>
                 </tr>
                 </tfoot>

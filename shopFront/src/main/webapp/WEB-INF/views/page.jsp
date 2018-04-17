@@ -97,6 +97,10 @@
             <%@include file="./cart.jsp" %>
         </c:if>
 
+        <c:if test="${userClickShowPayment == true}">
+            <%@include file="./payment.jsp"%>
+        </c:if>
+
 
     </div>
 
