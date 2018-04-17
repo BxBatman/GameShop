@@ -30,7 +30,7 @@ public class Product {
     private String brand;
     @JsonIgnore
     @NotBlank(message = "Prosze wprowadzic opis")
-    @Max(value = 254, message = "Opis nie mo¿e byæ d³u¿szy ni¿ 255 znaków")
+
     private String description;
     @Column(name = "unit_price")
     @Min(value=1,message = "Cena nie moze byc nizsza niz 1")
