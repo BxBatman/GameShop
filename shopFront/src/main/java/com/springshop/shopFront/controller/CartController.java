@@ -1,12 +1,16 @@
 package com.springshop.shopFront.controller;
 
+import com.springshop.backShop.dao.AddressDAO;
 import com.springshop.backShop.dao.CartLineDAO;
 import com.springshop.backShop.dao.ProductDAO;
+import com.springshop.backShop.dao.UserDAO;
 import com.springshop.backShop.dto.CartLine;
 import com.springshop.backShop.dto.Product;
 import com.springshop.backShop.dto.User;
 import com.springshop.shopFront.service.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,6 +32,12 @@ public class CartController {
 
     @Autowired
     private CartLineDAO cartLineDAO;
+
+    @Autowired
+    private AddressDAO addressDAO;
+
+    @Autowired
+    private UserDAO userDAO;
 
     @RequestMapping("/show")
     public ModelAndView showCart(@RequestParam(name = "result", required = false) String result) {
@@ -85,9 +95,12 @@ public class CartController {
     @RequestMapping("/show/payment")
     public ModelAndView showPayment() {
         ModelAndView mv = new ModelAndView("page");
-
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        User user = userDAO.getByEmail(authentication.getName());
         mv.addObject("title", "P³atno¶æ");
         mv.addObject("userClickShowPayment", true);
+        mv.addObject("user",user);
+        mv.addObject("address",addressDAO.getAddressByUserId(user.getId()));
         mv.addObject("cartLines", cartService.getCartLines());
         return mv;
     }

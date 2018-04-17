@@ -1,4 +1,7 @@
 package com.springshop.backShop.dao;
 
-public class AddressDAO {
+import com.springshop.backShop.dto.Address;
+
+public interface AddressDAO {
+    Address getAddressByUserId(int userId);
 }
