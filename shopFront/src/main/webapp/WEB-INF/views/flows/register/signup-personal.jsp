@@ -70,9 +70,9 @@
                     <label class="radio-inline">
                         <sf:radiobutton path="role" value="USER" checked="checked"/>U¿ytkownik
                     </label>
-                    <label class="radio-inline">
+                    <!--<label class="radio-inline">
                         <sf:radiobutton path="role" value="SUPPLIER"/>Dostawca
-                    </label>
+                    </label>-->
                 </div>
             </div>
 

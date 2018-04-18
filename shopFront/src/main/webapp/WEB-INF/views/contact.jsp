@@ -11,23 +11,18 @@
         </div>
 
         <div class="col-md-5">
-            <h4><strong>Skontaktuj siê z nami</strong></h4>
-            <form>
-                <div class="form-group">
-                    <input type="text" class="form-control" name="" value="" placeholder="Imiê">
-                </div>
-                <div class="form-group">
-                    <input type="email" class="form-control" name="" value="" placeholder="E-mail">
-                </div>
-                <div class="form-group">
-                    <input type="tel" class="form-control" name="" value="" placeholder="Telefon">
-                </div>
-                <div class="form-group">
-                    <textarea class="form-control" name="" rows="3" placeholder="Wiadomo¶æ"></textarea>
-                </div>
-                <button class="btn btn-success" type="submit" name="button">
-                    Potwierd¼
-                </button>
+            <br>
+            <br>
+            <h6>Adres</h6>
+            <p>ul.Kolorowa 6, £ód¼</p>
+
+            <h6>Telefon</h6>
+            <p>123-456-789</p>
+
+            <h6>E-mail</h6>
+            <p>games4u@gmail.com</p>
+
+
             </form>
         </div>
     </div>

@@ -127,4 +127,15 @@ public class CartService {
 
         return response;
     }
+
+    public String checkUpdateSubtotal() {
+        String response = null;
+        List<CartLine> cartLineList = getCartLines();
+        for (CartLine cartLine : cartLineList) {
+            if(cartLine.getProduct().getQuantity() < 1) {
+                response = "expired";
+            }
+        }
+        return response;
+    }
 }

@@ -2,6 +2,7 @@ package com.springshop.backShop.dto;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 import java.io.Serializable;
 
 @Entity
@@ -15,22 +16,26 @@ public class User implements Serializable{
     private int id;
 
     @Column(name="first_name")
-    @NotBlank(message = "Imię nie może być puste")
+    @NotBlank(message = "Nie moze byc puste")
+    @Pattern(regexp = "[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ]*",message = "Tylko litery")
     private String firstName;
 
-    @NotBlank(message = "Nazwisko nie może być puste")
+    @NotBlank(message = "Nie moze byc puste")
     @Column(name="last_name")
+    @Pattern(regexp = "[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ]*",message = "Tylko litery")
     private String lastName;
 
-    @NotBlank(message = "Prosze podać adres e-mail")
+    @NotBlank(message = "Prosze podac adres e-mail")
+    @Pattern(regexp = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?",message = "Prosze wprowadzic poprawny e-mail")
     private String email;
 
     @Column(name="contact_number")
-    @NotBlank(message = "Prosze podać numer telefonu")
+    @NotBlank(message = "Prosze podac numer telefonu")
+    @Pattern(regexp = "^[0-9]*$",message = "Prosze podac poprawny numer telefonu")
     private String contactNumber;
     private String role;
 
-    @NotBlank(message = "Podaj hasło")
+    @NotBlank(message = "Podaj haslo")
     private String password;
     private boolean enabled = true;
 

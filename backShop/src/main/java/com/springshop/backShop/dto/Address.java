@@ -2,6 +2,7 @@ package com.springshop.backShop.dto;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 import java.io.Serializable;
 
 @Entity
@@ -14,19 +15,23 @@ public class Address implements Serializable{
     private int id;
     @ManyToOne
     private User user;
-    @NotBlank(message = "Prosze podać adres")
+    @NotBlank(message = "Prosze podac adres")
     @Column(name="address_line_one")
     private String addressLineOne;
     @Column(name="address_line_two")
     private String addressLineTwo;
-    @NotBlank(message = "Prosze podać miasto")
+    @NotBlank(message = "Prosze podac miasto")
+    @Pattern(regexp = "[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ]*",message = "Tylko litery")
     private String city;
-    @NotBlank(message = "Prosze podać województwo")
+    @NotBlank(message = "Prosze zaznaczyc województwo")
+    @Pattern(regexp = "[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ]*",message = "Tylko litery")
     private String state;
     @NotBlank(message = "Prosze podać kraj")
+    @Pattern(regexp = "[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ]*",message = "Tylko litery")
     private String country;
     @NotBlank(message = "Prosze podać kod pocztowy")
     @Column(name="postal_code")
+    @Pattern(regexp = "^[0-9]*$",message = "Prosze podac poprawny kod pocztowy")
     private String postalCode;
     private boolean shipping;
     private boolean billing;

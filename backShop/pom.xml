@@ -11,7 +11,7 @@
     <url>http://maven.apache.org</url>
 
     <properties>
-        <project.build.sourceEncoding>ISO-8859-2</project.build.sourceEncoding>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring.version>5.0.4.RELEASE</spring.version>
         <hibernate.version>5.2.13.Final</hibernate.version>
         <jackson.version>2.9.4</jackson.version>

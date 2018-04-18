@@ -70,7 +70,7 @@ public class CartController {
         mv.addObject("title", "Koszyk");
         mv.addObject("userClickShowCart", true);
         mv.addObject("cartLines", cartService.getCartLines());
-
+        mv.addObject("payResponse",cartService.checkUpdateSubtotal());
         return mv;
     }
 

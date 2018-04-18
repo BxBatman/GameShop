@@ -15,10 +15,10 @@
             <table id="cart" class="table table-hover table-condensed">
                 <thead>
                 <tr>
-                    <th style="width:50%">Product</th>
-                    <th style="width:10%">Price</th>
-                    <th style="width:8%">Quantity</th>
-                    <th style="width:22%" class="text-center">Subtotal</th>
+                    <th style="width:50%">Produkt</th>
+                    <th style="width:10%">Cena</th>
+                    <th style="width:8%">Ilo¶æ</th>
+                    <th style="width:22%" class="text-center">Suma</th>
                     <th style="width:10%"></th>
                 </tr>
                 </thead>
@@ -43,8 +43,17 @@
                             </div>
                         </td>
                         <td data-th="Price">${cartLine.buyingPrice} z³</td>
+
                         <td data-th="Quantity">
+                            <c:choose>
+                                <c:when test="${cartLine.product.quantity > 0}">
                             <input type="number" id="count_${cartLine.id}" min="1"  max="3" class="form-control text-center" value="${cartLine.productCount}">
+                                </c:when>
+                                <c:otherwise>
+                                    <h4 style="color: red">Wyprzedane</h4>
+                                </c:otherwise>
+                            </c:choose>
+
                         </td>
                         <td data-th="Subtotal" class="text-center">${cartLine.total} z³</td>
                         <td class="actions" data-th="">
@@ -59,8 +68,16 @@
                 <tr>
                     <td><a href="${contextRoot}/show/all/products" class="btn btn-warning"><i class="fa fa-angle-left"></i> Kontynuuj zakupy</a></td>
                     <td colspan="2" class="hidden-xs"></td>
+                    <c:choose>
+                    <c:when test="${not empty payResponse}">
+                    <td class="hidden-xs text-center" style="color:red;"> <strong>Usuñ wyprzedane produkty aby zap³aciæ</strong></td>
+                    <td><a href="" class="btn btn-success btn-block disabled">P³atno¶æ <i class="fa fa-angle-right"></i></a>
+                        </c:when>
+                        <c:otherwise>
                     <td class="hidden-xs text-center"><strong>Ca³kowity koszt ${userModel.cart.grandTotal} z³</strong></td>
                     <td><a href="${contextRoot}/cart/show/payment" class="btn btn-success btn-block">P³atno¶æ <i class="fa fa-angle-right"></i></a>
+                        </c:otherwise>
+                        </c:choose>
                     </td>
                 </tr>
                 </tfoot>
