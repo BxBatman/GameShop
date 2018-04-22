@@ -16,6 +16,10 @@ public class Product {
     private int id;
     private String code;
 
+    @ManyToOne
+    @JoinColumn(name="category_id",insertable = false,updatable = false)
+    Category category;
+
     public String getName() {
         return name;
     }
@@ -30,7 +34,6 @@ public class Product {
     private String brand;
     @JsonIgnore
     @NotBlank(message = "Prosze wprowadzic opis")
-
     private String description;
     @Column(name = "unit_price")
     @Min(value=1,message = "Cena nie moze byc nizsza niz 1")

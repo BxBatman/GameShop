@@ -20,6 +20,10 @@ public class CartLine implements Serializable{
     @OneToOne
     private Product product;
 
+    @ManyToOne
+    @JoinColumn(name="cart_id",insertable = false,updatable = false)
+    Cart cart;
+
     @Column(name="cart_id")
     private int cartId;
 
